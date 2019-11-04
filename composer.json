@@ -1,0 +1,34 @@
+{
+    "name": "dotdigital/engagement-cloud-chat",
+    "description": "Engagement Cloud for Magento 2: Chat module",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": "MIT",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://repo.magento.com/"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/magento/marketplace-eqp"
+        }
+    ],
+    "require": {
+        "dotmailer/dotmailer-magento2-extension": ">=3.0.2",
+        "magento/module-config": ">=100 <103",
+        "magento/module-directory": "100.*",
+        "magento/module-backend": ">=100 <102"
+    },
+    "require-dev": {
+        "phpmd/phpmd": "@stable",
+        "magento/marketplace-eqp": "dev-master",
+        "squizlabs/php_codesniffer": "@stable"
+    },
+    "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+            "Dotdigitalgroup\\LiveChat\\": ""
+        }
+    }
+}
