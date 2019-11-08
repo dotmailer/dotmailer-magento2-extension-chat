@@ -1,5 +1,5 @@
 {
-    "name": "dotdigital/engagement-cloud-chat",
+    "name": "dotmailer/dotmailer-magento2-extension-chat",
     "description": "Engagement Cloud for Magento 2: Chat module",
     "type": "magento2-module",
     "version": "1.0.0",
@@ -28,7 +28,7 @@
     "autoload": {
         "files": [ "registration.php" ],
         "psr-4": {
-            "Dotdigitalgroup\\LiveChat\\": ""
+            "Dotdigitalgroup\\Chat\\": ""
         }
     }
 }
