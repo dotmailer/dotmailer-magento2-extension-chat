@@ -1,14 +1,11 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <tab id="ddg_automation" translate="label" sortOrder="500">
-            <label>ENGAGEMENT CLOUD : Chat</label>
-        </tab>
         <section id="chat_api_credentials" translate="label" sortOrder="135" showInDefault="1" showInWebsite="1" showInStore="0">
             <class>separator-top</class>
             <label>Chat Settings</label>
             <tab>ddg_automation</tab>
-            <resource>Dotdigitalgroup_Email::config</resource>
+            <resource>Dotdigitalgroup_Chat::config</resource>
             <group id="settings" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="0">
                 <label>Chat Settings</label>
                 <attribute type="expanded">1</attribute>
@@ -21,14 +18,14 @@
                     <depends>
                         <field id="enabled">1</field>
                     </depends>
-                    <frontend_model>Dotdigitalgroup\Email\Block\Adminhtml\Config\Chat\Settings\ConfigureWidgetButton</frontend_model>
+                    <frontend_model>Dotdigitalgroup\Chat\Block\Adminhtml\Config\Settings\ConfigureWidgetButton</frontend_model>
                 </field>
                 <field id="configure_chat_teams" translate="label" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Configure Chat Teams</label>
                     <depends>
                         <field id="enabled">1</field>
                     </depends>
-                    <frontend_model>Dotdigitalgroup\Email\Block\Adminhtml\Config\Chat\Settings\ConfigureTeamsButton</frontend_model>
+                    <frontend_model>Dotdigitalgroup\Chat\Block\Adminhtml\Config\Settings\ConfigureTeamsButton</frontend_model>
                 </field>
             </group>
         </section>
