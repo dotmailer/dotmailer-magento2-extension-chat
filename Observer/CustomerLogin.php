@@ -1,6 +1,6 @@
 <?php
 
-namespace Dotdigitalgroup\Email\Observer\Customer;
+namespace Dotdigitalgroup\Chat\Observer;
 
 use Dotdigitalgroup\Chat\Model\Config;
 use Magento\Framework\Event\ObserverInterface;
