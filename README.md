@@ -3,11 +3,15 @@
 
 ### Requirements
 
-- This module requires the `Dotdigitalgroup_Email` module
+- This module requires the `Dotdigitalgroup_Email` module v4.3.0+ [Note: the 4.1.0 version shipped with Magento 2.3.4 can also be used]
 
 ### Activation
 
-- Run `composer install` to automatically enable the module
+- To enable the module, run:
+ ```
+ composer require dotmailer/dotmailer-magento2-extension-chat
+ bin/magento setup:upgrade
+ ```
 - Ensure you have set valid API credentials in **Configuration > Engagement Cloud > Account Settings**
 - Turn on the chat bubble by enabling chat in **Configuration > Engagement Cloud > Chat Settings**
 
