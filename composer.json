@@ -2,7 +2,7 @@
     "name": "dotmailer/dotmailer-magento2-extension-chat",
     "description": "Engagement Cloud for Magento 2: Chat module",
     "type": "magento2-module",
-    "version": "1.0.3",
+    "version": "1.2.0",
     "license": "MIT",
     "repositories": [
         {
