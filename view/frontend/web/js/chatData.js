@@ -15,7 +15,7 @@ define([
 
         window._ddgChatConfig = {
             apiSpace: chatData().apiSpaceId,
-            launchTimeout: 2000
+            urlBase: 'https://webchat.dotdigital.com'
         };
 
         (function (d, s, id) {
