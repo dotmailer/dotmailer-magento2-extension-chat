@@ -65,7 +65,7 @@ define([
 
         // check we have API space ID, that chat is enabled, and the API space ID was refreshed under 6 hours ago
         if (
-            typeof chatData().apiSpaceId === 'undefined'
+            chatData().apiSpaceId == null
             || chatData().data_id < Math.floor(new Date().getTime() / 1000 - 60 * 60)
         ) {
             customerData.invalidate([sectionName]);
