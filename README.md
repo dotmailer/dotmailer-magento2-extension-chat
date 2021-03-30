@@ -4,7 +4,7 @@
 
 ### Requirements
 
-- This module requires the `Dotdigitalgroup_Email` module v4.3.0+ [Note: the 4.1.0 version shipped with Magento 2.3.4 can also be used]
+- This module requires the `Dotdigitalgroup_Email` module v4.10.0+
 
 ### Activation
 
