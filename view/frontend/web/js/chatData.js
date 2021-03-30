@@ -13,7 +13,7 @@ define([
     function startChat(chatData) {
         var storageKey = chatData().cookieName;
 
-        window.comapiConfig = {
+        window._ddgChatConfig = {
             apiSpace: chatData().apiSpaceId,
             launchTimeout: 2000
         };
@@ -25,9 +25,9 @@ define([
                 return;
             }
             js = d.createElement(s); js.id = id;
-            js.src = '//cdn.dnky.co/widget/bootstrap.js';
+            js.src = '//webchat.dotdigital.com/widget/bootstrap.js';
             cjs.parentNode.insertBefore(js, cjs);
-        }(document, 'script', 'comapi-widget'));
+        }(document, 'script', 'ddg-chat-widget'));
 
         // listen for widget message events
         window.addEventListener('message', function (event) {
