@@ -16,6 +16,16 @@
 - Ensure you have set valid API credentials in **Configuration > dotdigital > Account Settings**
 - Turn on the chat bubble by enabling chat in **Configuration > dotdigital > Chat Settings**
 
+## 1.4.0
+
+###### Improvements
+- We’ve replaced comapi.com URLs with their updated dotdigital.com equivalents.
+- The `launchTimeout` delay in the widget embed code has been removed (there is already a delay without this).
+
+###### Bug fixes
+- The Chat API space id is now re-saved whenever the chat settings change, regardless of whether it was set before; this resolves a possible issue when configuring Chat across multiple websites. 
+- We fixed a possible bug to do with checking for an API space id in browser local storage.
+
 ## 1.0.3
 
 ###### Improvements
