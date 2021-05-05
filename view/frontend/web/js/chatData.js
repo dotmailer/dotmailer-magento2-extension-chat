@@ -68,7 +68,6 @@ define([
             chatData().apiSpaceId == null
             || chatData().data_id < Math.floor(new Date().getTime() / 1000 - 60 * 60)
         ) {
-            customerData.invalidate([sectionName]);
             customerData.reload([sectionName], true)
                 .done(function () {
                     chatData = customerData.get(sectionName);
