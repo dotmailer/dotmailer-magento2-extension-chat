@@ -9,6 +9,7 @@
             <description value="The chat widget bubble will be displayed on the front end of the website if valid API credentials have been entered, and chat has been enabled."/>
             <severity value="CRITICAL"/>
             <group value="dotdigitalChat"/>
+            <testCaseId value="BUNDLE-2303"/>
         </annotations>
 
         <before>
