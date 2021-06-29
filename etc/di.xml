@@ -4,4 +4,7 @@
     <type name="Dotdigitalgroup\Email\Controller\Ajax\Emailcapture">
         <plugin name="ddg_chat_emailcapture_plugin" type="Dotdigitalgroup\Chat\Plugin\EmailcapturePlugin" sortOrder="1" disabled="false"/>
     </type>
+    <type name="Dotdigitalgroup\Email\Model\Sync\Integration\DotdigitalConfig">
+        <plugin name="ddg_chat_config_provider_plugin" type="Dotdigitalgroup\Chat\Plugin\ConfigProviderPlugin"/>
+    </type>
 </config>
