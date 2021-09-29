@@ -11,7 +11,8 @@
         }
     ],
     "require": {
-        "dotmailer/dotmailer-magento2-extension": "^4.10.0",
+        "php": "^7.1",
+        "dotmailer/dotmailer-magento2-extension": "^4.12.0",
         "magento/framework": ">=101 <104",
         "magento/module-config": ">=100 <103",
         "magento/module-backend": ">=100 <103",

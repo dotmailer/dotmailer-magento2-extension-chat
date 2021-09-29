@@ -68,12 +68,13 @@ define([
             chatData().apiSpaceId == null
             || chatData().data_id < Math.floor(new Date().getTime() / 1000 - 60 * 60)
         ) {
-            customerData.invalidate([sectionName]);
             customerData.reload([sectionName], true)
                 .done(function () {
                     chatData = customerData.get(sectionName);
 
-                    if (chatData().isEnabled) {
+                    if (chatData().isEnabled && chatData().apiSpaceId == null) {
+                        console.log('dotdigital chat error: API space ID is null. Please check your settings.');
+                    } else {
                         startChat(chatData);
                     }
                 });
