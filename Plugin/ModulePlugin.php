@@ -8,7 +8,7 @@ use Magento\Framework\Module\ModuleListInterface;
 class ModulePlugin
 {
     const MODULE_NAME = 'Dotdigitalgroup_Chat';
-    const MODULE_DESCRIPTION = 'Engagement Cloud Chat for Magento 2';
+    const MODULE_DESCRIPTION = 'Dotdigital Chat for Magento 2';
 
     /**
      * @var ModuleListInterface
