@@ -3,7 +3,7 @@
        xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/testSchema.xsd">
     <test name="ButtonsAreEnabledWhenApiCredsAreValidTest">
         <annotations>
-            <features value="Engagement Cloud module"/>
+            <features value="Dotdigital module"/>
             <stories value="Chat configuration buttons depend on valid API credentials"/>
             <title value="Check buttons are enabled"/>
             <description value="Enable chat configuration when valid API credentials are entered."/>
