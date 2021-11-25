@@ -4,17 +4,27 @@
 
 ### Requirements
 
-- This module requires the `Dotdigitalgroup_Email` module v4.10.0+
+- This module requires the `Dotdigitalgroup_Email` module v4.14.0+
 
 ### Activation
 
 - To enable the module, run:
  ```
- composer require dotmailer/dotmailer-magento2-extension-chat
+ composer require dotdigital/dotdigital-magento2-extension-chat
  bin/magento setup:upgrade
  ```
 - Ensure you have set valid API credentials in **Configuration > Dotdigital > Account Settings**
 - Turn on the chat bubble by enabling chat in **Configuration > Dotdigital > Chat Settings**
+
+## 1.6.0-RC1
+
+##### What's new
+- This module has been renamed `dotdigital/dotdigital-magento2-extension-chat`.
+- We've added a new plugin to provide additional configuration values to our integration insight data cron.
+
+##### Improvements
+- `setup_version` has been removed from module.xml; in the Dashboard, we now use composer.json to provide the current active module version.
+- Menus and ACL resources are now translatable. [External contribution](https://github.com/dotmailer/dotmailer-magento2-extension-chat/pull/3)
 
 ## 1.4.0
 
