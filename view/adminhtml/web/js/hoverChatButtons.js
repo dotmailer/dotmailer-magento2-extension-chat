@@ -26,7 +26,7 @@ require(['jquery',
 
     $('.ddg-disabled-button').hover(function () {
             var toolTipText = $.mage.__(
-                'Your API credentials are not set. Please make sure that you have a valid Engagement Cloud account.'
+                'Your API credentials are not set. Please make sure that you have a valid Dotdigital account.'
             );
 
             $(this).attr('onClick', '#');

@@ -73,7 +73,7 @@ define([
                     chatData = customerData.get(sectionName);
 
                     if (chatData().isEnabled && chatData().apiSpaceId == null) {
-                        console.log('dotdigital chat error: API space ID is null. Please check your settings.');
+                        console.log('Dotdigital chat error: API space ID is null. Please check your settings.');
                     } else {
                         startChat(chatData);
                     }
