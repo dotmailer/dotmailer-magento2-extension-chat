@@ -6,7 +6,7 @@
 - This module requires the `Dotdigitalgroup_Email` module v4.14.0+
 
 ## Activation
-- This module is included in all our metapackages. Please refer to [these instructions](https://github.com/dotmailer/dotmailer-magento2-extension#installation) to install via the Magento Marketplace.
+- This module is included in our core extension. Please refer to [these instructions](https://github.com/dotmailer/dotmailer-magento2-extension#installation) to install via the Magento Marketplace.
 - Ensure you have set valid API credentials in **Configuration > Dotdigital > Account Settings**
 - Turn on the chat bubble by enabling chat in **Configuration > Dotdigital > Chat Settings**
 
