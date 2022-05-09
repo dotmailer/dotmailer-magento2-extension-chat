@@ -2,7 +2,7 @@
     "name": "dotdigital/dotdigital-magento2-extension-chat",
     "description": "Dotdigital for Magento 2: Chat module",
     "type": "magento2-module",
-    "version": "1.6.0",
+    "version": "1.6.1",
     "license": "MIT",
     "repositories": [
         {
@@ -14,8 +14,8 @@
         "dotmailer/dotmailer-magento2-extension-chat": "*"
     },
     "require": {
-        "php": "^7.1||^8.0",
-        "dotdigital/dotdigital-magento2-extension": "^4.14.0",
+        "php": "^7.2||^8.0",
+        "dotdigital/dotdigital-magento2-extension": "^4.17.0",
         "magento/framework": ">=101 <104",
         "magento/module-config": ">=100 <103",
         "magento/module-backend": ">=100 <103",
