@@ -3,7 +3,10 @@
 namespace Dotdigitalgroup\Chat\CustomerData;
 
 use Dotdigitalgroup\Chat\Model\Config;
+use Magento\Customer\Api\Data\CustomerInterface;
 use Magento\Customer\CustomerData\SectionSourceInterface;
+use Magento\Framework\Exception\LocalizedException;
+use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Framework\UrlInterface;
 use Dotdigitalgroup\Email\Helper\Data;
@@ -27,6 +30,7 @@ class Chat implements SectionSourceInterface
 
     /**
      * Chat constructor.
+     *
      * @param Config $config
      * @param Data $helper
      * @param StoreManagerInterface $storeManager
@@ -42,14 +46,17 @@ class Chat implements SectionSourceInterface
     }
 
     /**
+     * Get section data for localstorage
+     *
      * @return array
-     * @throws \Magento\Framework\Exception\LocalizedException
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     * @throws LocalizedException
+     * @throws NoSuchEntityException
      */
     public function getSectionData()
     {
         return [
             'isEnabled' => $this->config->isChatEnabled(),
+            'apiHost' => $this->config->getApiHost(),
             'apiSpaceId' => $this->config->getApiSpaceId(),
             'customerId' => $this->getCustomerId(),
             'profileEndpoint' => $this->getEndpointWithStoreCode(),
@@ -58,23 +65,29 @@ class Chat implements SectionSourceInterface
     }
 
     /**
+     * Get structured store callback url
+     *
      * @return string
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     * @throws NoSuchEntityException
      */
     private function getEndpointWithStoreCode()
     {
-        return $this->storeManager->getStore()->getBaseUrl(UrlInterface::URL_TYPE_WEB, true)
-            . Config::MAGENTO_PROFILE_CALLBACK_ROUTE;
+        /** @var \Magento\Store\Model\Store $store */
+        $store = $this->storeManager->getStore();
+        return $store->getBaseUrl(UrlInterface::URL_TYPE_WEB, true) . Config::MAGENTO_PROFILE_CALLBACK_ROUTE;
     }
 
     /**
+     * Get customer ID
+     *
      * @return int|null
-     * @throws \Magento\Framework\Exception\LocalizedException
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     * @throws LocalizedException
+     * @throws NoSuchEntityException
      */
     private function getCustomerId()
     {
         if ($customer = $this->config->getSession()->getQuote()->getCustomer()) {
+            /** @var CustomerInterface $customer */
             return $customer->getId();
         }
         return null;

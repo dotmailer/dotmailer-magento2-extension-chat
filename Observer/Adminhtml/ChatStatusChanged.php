@@ -5,14 +5,17 @@ namespace Dotdigitalgroup\Chat\Observer\Adminhtml;
 use Dotdigitalgroup\Chat\Model\Config;
 use Dotdigitalgroup\Email\Helper\Data;
 use Magento\Backend\App\Action\Context;
+use Magento\Framework\App\Request\Http;
 use Magento\Framework\Event\Observer;
+use Magento\Framework\Event\ObserverInterface;
+use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Message\ManagerInterface;
 use Dotdigitalgroup\Email\Logger\Logger;
 
 /**
  * Validate api when saving creds in admin.
  */
-class ChatStatusChanged implements \Magento\Framework\Event\ObserverInterface
+class ChatStatusChanged implements ObserverInterface
 {
     /**
      * @var Context
@@ -30,7 +33,7 @@ class ChatStatusChanged implements \Magento\Framework\Event\ObserverInterface
     private $messageManager;
 
     /**
-     * @var \Dotdigitalgroup\Email\Helper\Data
+     * @var Data
      */
     private $helper;
 
@@ -41,6 +44,7 @@ class ChatStatusChanged implements \Magento\Framework\Event\ObserverInterface
 
     /**
      * ChatStatusChanged constructor.
+     *
      * @param Context $context
      * @param Config $config
      * @param ManagerInterface $messageManager
@@ -63,12 +67,16 @@ class ChatStatusChanged implements \Magento\Framework\Event\ObserverInterface
 
     /**
      * Check API credentials when live chat is enabled
+     *
      * @param Observer $observer
+     * @throws LocalizedException
      */
     public function execute(Observer $observer)
     {
         $website = $this->helper->getWebsiteForSelectedScopeInAdmin();
-        $groups = $this->context->getRequest()->getPost('groups');
+        $request = $this->context->getRequest();
+        /** @var Http $request */
+        $groups = $request->getPost('groups');
         $enabled = $this->getEnabled($groups);
 
         if (!$enabled) {
@@ -76,7 +84,7 @@ class ChatStatusChanged implements \Magento\Framework\Event\ObserverInterface
             return;
         }
 
-        $client = $this->helper->getWebsiteApiClient($website);
+        $client = $this->helper->getWebsiteApiClient($website->getId());
         $response = $client->setUpChatAccount();
 
         if (!$response || isset($response->message)) {
@@ -94,7 +102,9 @@ class ChatStatusChanged implements \Magento\Framework\Event\ObserverInterface
     }
 
     /**
-     * @param $groups
+     * Get is enabled by group
+     *
+     * @param array $groups
      * @return mixed
      */
     private function getEnabled($groups)

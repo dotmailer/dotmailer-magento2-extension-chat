@@ -75,6 +75,7 @@ class ChatStatusChangedTest extends TestCase
     protected function setUp() :void
     {
         $this->configMock = $this->createMock(Config::class);
+
         $this->clientMock = $this->createMock(Client::class);
         $this->contextMock = $this->createMock(Context::class);
         $this->observerMock = $this->createMock(Observer::class);
@@ -103,9 +104,12 @@ class ChatStatusChangedTest extends TestCase
             ->method('getWebsiteForSelectedScopeInAdmin')
             ->willReturn($this->websiteMock);
 
+        $this->websiteMock->expects($this->once())
+            ->method('getId')
+            ->willReturn(1);
+
         $this->helperMock->expects($this->once())
             ->method('getWebsiteApiClient')
-            ->with($this->websiteMock)
             ->willReturn($this->clientMock);
     }
 
@@ -135,11 +139,7 @@ class ChatStatusChangedTest extends TestCase
 
         $this->configMock->expects($this->once())
             ->method('saveChatApiToken')
-            ->willReturn(new class() {
-                public function reinitialiseConfig()
-                {
-                }
-            });
+            ->willReturn($this->createMock(Config::class));
 
         $this->managerInterfaceMock->expects($this->never())
             ->method('addErrorMessage');
