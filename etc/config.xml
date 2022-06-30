@@ -8,6 +8,7 @@
             </credentials>
             <settings>
                 <enabled>0</enabled>
+                <api_host>https://webchat.dotdigital.com</api_host>
             </settings>
         </chat_api_credentials>
     </default>

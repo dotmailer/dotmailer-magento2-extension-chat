@@ -11,11 +11,11 @@ define([
      * @param {Object} chatData
      */
     function startChat(chatData) {
-        var storageKey = chatData().cookieName;
+        const storageKey = chatData().cookieName;
 
         window._ddgChatConfig = {
             apiSpace: chatData().apiSpaceId,
-            urlBase: 'https://webchat.dotdigital.com'
+            urlBase: chatData().apiHost
         };
 
         (function (d, s, id) {
@@ -25,7 +25,7 @@ define([
                 return;
             }
             js = d.createElement(s); js.id = id;
-            js.src = '//webchat.dotdigital.com/widget/bootstrap.js';
+            js.src = chatData().apiHost + '/widget/bootstrap.js';
             cjs.parentNode.insertBefore(js, cjs);
         }(document, 'script', 'ddg-chat-widget'));
 
@@ -66,6 +66,7 @@ define([
         // check we have API space ID, that chat is enabled, and the API space ID was refreshed under 6 hours ago
         if (
             chatData().apiSpaceId == null
+            || chatData().hasOwnProperty('apiHost')
             || chatData().data_id < Math.floor(new Date().getTime() / 1000 - 60 * 60)
         ) {
             customerData.reload([sectionName], true)
