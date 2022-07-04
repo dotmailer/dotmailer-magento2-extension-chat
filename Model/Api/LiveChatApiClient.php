@@ -10,10 +10,6 @@ use Zend\Http\Response;
 
 class LiveChatApiClient
 {
-    /**
-     * Chat API hostname
-     */
-    const CHAT_API_HOST = 'https://webchat.dotdigital.com';
 
     /**
      * Chat config
@@ -69,7 +65,7 @@ class LiveChatApiClient
         /** @var HttpClient $httpClient */
         $httpClient = $this->httpClientFactory->create();
         $httpClient->setMethod($method)
-            ->setUri(sprintf('%s/%s', self::CHAT_API_HOST, $endpoint))
+            ->setUri(sprintf('%s/%s', $this->config->getApiHost(), $endpoint))
             ->setHeaders([
                 'Accept' => 'application/json',
                 'Content-type' => 'application/json',

@@ -13,6 +13,9 @@
                     <label>Enabled</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
+                <field id="api_host" translate="label" type="text" showInDefault="0" showInStore="0" showInWebsite="0">
+                    <label>Api Host</label>
+                </field>
                 <field id="configure_chat_widget" translate="label" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Configure Chat Widget</label>
                     <depends>
