@@ -6,6 +6,7 @@ use Dotdigitalgroup\Chat\Model\Api\LiveChatApiClient;
 use Dotdigitalgroup\Chat\Model\Api\LiveChatRequestInterface;
 use Dotdigitalgroup\Chat\Model\Config;
 use Dotdigitalgroup\Email\Logger\Logger;
+use Zend\Http\Response;
 use Zend\Http\Request;
 
 class UpdateProfile implements LiveChatRequestInterface
@@ -43,18 +44,22 @@ class UpdateProfile implements LiveChatRequestInterface
     }
 
     /**
+     * Send update profile request
+     *
      * @param string $profileId
      * @param array $data
-     * @return \Zend\Http\Response
+     * @return void|\Zend_Http_Response
      */
     public function send(string $profileId, array $data = [])
     {
         try {
-            return $this->client->request(
+            /** @var \Zend_Http_Response $response */
+            $response = $this->client->request(
                 sprintf('apispaces/%s/profiles/%s', $this->config->getApiSpaceId(), $profileId),
                 Request::METHOD_PATCH,
                 $data
             );
+            return $response;
         } catch (\Magento\Framework\Exception\LocalizedException $e) {
             $this->logger->debug($e->getMessage());
         }

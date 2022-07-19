@@ -5,9 +5,13 @@ namespace Dotdigitalgroup\Chat\Block\Adminhtml\Config\Settings;
 use Dotdigitalgroup\Chat\Model\Config;
 use Dotdigitalgroup\Email\Helper\Data;
 use Dotdigitalgroup\Email\Helper\OauthValidator;
+use Magento\Backend\Block\Template\Context;
 use Magento\Backend\Block\Widget\Button;
+use Magento\Config\Block\System\Config\Form\Field;
+use Magento\Framework\Data\Form\Element\AbstractElement;
+use Magento\Framework\Exception\LocalizedException;
 
-abstract class ButtonField extends \Magento\Config\Block\System\Config\Form\Field
+abstract class ButtonField extends Field
 {
     /**
      * @var Config
@@ -26,14 +30,15 @@ abstract class ButtonField extends \Magento\Config\Block\System\Config\Form\Fiel
 
     /**
      * ButtonField constructor.
-     * @param \Magento\Backend\Block\Template\Context $context
+     *
+     * @param Context $context
      * @param Config $config
      * @param Data $helper
      * @param OauthValidator $oauthValidator
      * @param array $data
      */
     public function __construct(
-        \Magento\Backend\Block\Template\Context $context,
+        Context $context,
         Config $config,
         Data $helper,
         OauthValidator $oauthValidator,
@@ -47,6 +52,7 @@ abstract class ButtonField extends \Magento\Config\Block\System\Config\Form\Fiel
 
     /**
      * Returns the class name based on API Creds validation
+     *
      * @return string
      */
     public function getCssClass()
@@ -58,20 +64,25 @@ abstract class ButtonField extends \Magento\Config\Block\System\Config\Form\Fiel
     }
 
     /**
+     * Get Button url
+     *
      * @return string
      */
     abstract protected function getButtonUrl();
 
     /**
-     * @param \Magento\Framework\Data\Form\Element\AbstractElement $element
+     * Get HTML element
+     *
+     * @param AbstractElement $element
      * @return string
-     * @throws \Magento\Framework\Exception\LocalizedException
+     * @throws LocalizedException
      */
-    public function _getElementHtml(\Magento\Framework\Data\Form\Element\AbstractElement $element)
+    public function _getElementHtml(AbstractElement $element)
     {
-        return $this->getLayout()
-            ->createBlock(Button::class)
-            ->setType('button')
+
+         $block = $this->getLayout()->createBlock(Button::class);
+         /** @var \Magento\Framework\View\Element\AbstractBlock $block */
+         return $block->setType('button')
             ->setLabel(__('Configure'))
             ->setOnClick(sprintf("window.open('%s','_blank')", $this->getButtonUrl()))
             ->setData('class', $this->getCssClass())
@@ -80,17 +91,20 @@ abstract class ButtonField extends \Magento\Config\Block\System\Config\Form\Fiel
 
     /**
      * Removes use Default Checkbox
-     * @param \Magento\Framework\Data\Form\Element\AbstractElement $element
+     *
+     * @param AbstractElement $element
      * @return string
      */
-    public function render(\Magento\Framework\Data\Form\Element\AbstractElement $element)
+    public function render(AbstractElement $element)
     {
         $element->unsScope()->unsCanUseWebsiteValue()->unsCanUseDefaultValue();
         return parent::render($element);
     }
 
     /**
-     * @param $url
+     * Get Dotdigital authorised url
+     *
+     * @param string $url
      * @return string
      */
     protected function getEcAuthorisedUrl($url)

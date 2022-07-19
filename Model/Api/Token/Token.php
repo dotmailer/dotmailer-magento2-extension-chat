@@ -42,6 +42,8 @@ class Token
     private $logger;
 
     /**
+     * Token check delay
+     *
      * We want to allow a small amount of time when checking the token expiry,
      * to account for 'clock skew' or just the time the script takes to proceed
      * from checking the token to actually making the API call.
@@ -77,6 +79,8 @@ class Token
     }
 
     /**
+     * Get API token
+     *
      * @return string|null
      * @throws \Magento\Framework\Exception\LocalizedException
      */
@@ -109,11 +113,13 @@ class Token
     private function isNotExpired(int $expTimestamp)
     {
         $currentDate = $this->dateTimeFactory->create('now', new \DateTimeZone('UTC'));
-
+        /** @var \DateTime $currentDate  */
         return ($currentDate->getTimestamp() + $this->leeway) < $expTimestamp;
     }
 
     /**
+     * Refresh API token
+     *
      * If our stored token is expired or has no expiry,
      * re-route back to EC to retrieve a new token.
      *

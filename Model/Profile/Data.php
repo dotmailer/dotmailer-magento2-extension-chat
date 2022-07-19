@@ -5,36 +5,40 @@ namespace Dotdigitalgroup\Chat\Model\Profile;
 use Magento\Customer\Api\CustomerRepositoryInterface;
 use Magento\Customer\Api\Data\CustomerInterface;
 use Magento\Customer\Model\Session;
+use Magento\Framework\Exception\LocalizedException;
+use Magento\Framework\Exception\NoSuchEntityException;
+use Magento\Framework\UrlInterface;
 use Magento\Quote\Api\CartRepositoryInterface;
 use Magento\Quote\Api\Data\CartInterface;
 use Magento\Sales\Model\ResourceModel\Order\CollectionFactory;
 use Magento\Store\Api\Data\StoreInterface;
+use Magento\Store\Model\Store;
 use Magento\Store\Model\StoreManagerInterface;
 
 class Data
 {
     /**
-     * @var \Magento\Customer\Model\Session
+     * @var Session
      */
     private $customerSession;
 
     /**
-     * @var \Magento\Customer\Api\CustomerRepositoryInterface
+     * @var CustomerRepositoryInterface
      */
     private $customerRepository;
 
     /**
-     * @var \Magento\Quote\Api\CartRepositoryInterface
+     * @var CartRepositoryInterface
      */
     private $quoteRepository;
 
     /**
-     * @var \Magento\Store\Model\StoreManagerInterface
+     * @var StoreManagerInterface
      */
     private $storeManager;
 
     /**
-     * @var \Magento\Sales\Model\ResourceModel\Order\CollectionFactory
+     * @var CollectionFactory
      */
     private $orderCollectionFactory;
 
@@ -65,8 +69,8 @@ class Data
      * Collects data for chat user
      *
      * @return array
-     * @throws \Magento\Framework\Exception\LocalizedException
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     * @throws LocalizedException
+     * @throws NoSuchEntityException
      */
     public function getDataForChatUser()
     {
@@ -83,7 +87,7 @@ class Data
 
         try {
             $quote = $this->quoteRepository->getForCustomer($loggedInCustomerId);
-        } catch (\Magento\Framework\Exception\NoSuchEntityException $e) {
+        } catch (NoSuchEntityException $e) {
             $quote = null;
         }
 
@@ -93,7 +97,7 @@ class Data
     /**
      * Returns basic payload for all users
      *
-     * @param StoreInterface $store
+     * @param Store $store
      * @return array
      */
     private function getBasePayload(StoreInterface $store)
@@ -102,7 +106,7 @@ class Data
             "store" => [
                 "id" => $store->getId(),
                 "url" => $store->getBaseUrl(
-                    \Magento\Framework\UrlInterface::URL_TYPE_WEB,
+                    UrlInterface::URL_TYPE_WEB,
                     true
                 )
             ],
@@ -116,7 +120,7 @@ class Data
      * @param CustomerInterface $customer
      * @param CartInterface|null $quote
      * @return array
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     * @throws NoSuchEntityException
      */
     private function getCustomerPayload(StoreInterface $store, CustomerInterface $customer, CartInterface $quote = null)
     {

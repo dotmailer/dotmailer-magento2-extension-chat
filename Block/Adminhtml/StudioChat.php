@@ -42,6 +42,7 @@ class StudioChat extends \Magento\Backend\Block\Template implements EngagementCl
 
     /**
      * StudioChat constructor.
+     *
      * @param Context $context
      * @param IntegrationSetupFactory $integrationSetupFactory
      * @param Data $helper
@@ -64,6 +65,8 @@ class StudioChat extends \Magento\Backend\Block\Template implements EngagementCl
     }
 
     /**
+     * Get action url for chat
+     *
      * @return string
      * @throws \Magento\Framework\Exception\LocalizedException
      */

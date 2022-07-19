@@ -6,8 +6,8 @@ use Dotdigitalgroup\Email\Model\Connector\Module;
 
 class ModulePlugin
 {
-    const MODULE_NAME = 'Dotdigitalgroup_Chat';
-    const MODULE_DESCRIPTION = 'Dotdigital Chat for Magento 2';
+    public const MODULE_NAME = 'Dotdigitalgroup_Chat';
+    public const MODULE_DESCRIPTION = 'Dotdigital Chat for Magento 2';
 
     /**
      * @var Module
@@ -15,6 +15,8 @@ class ModulePlugin
     private $module;
 
     /**
+     * ModulePlugin constructor.
+     *
      * @param Module $module
      */
     public function __construct(Module $module)
@@ -23,6 +25,8 @@ class ModulePlugin
     }
 
     /**
+     * Before fetch active module details
+     *
      * @param Module $module
      * @param array $modules
      * @return array

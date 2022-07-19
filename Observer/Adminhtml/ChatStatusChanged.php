@@ -5,7 +5,6 @@ namespace Dotdigitalgroup\Chat\Observer\Adminhtml;
 use Dotdigitalgroup\Chat\Model\Config;
 use Dotdigitalgroup\Email\Helper\Data;
 use Magento\Backend\App\Action\Context;
-use Magento\Framework\App\Request\Http;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Framework\Exception\LocalizedException;
@@ -74,8 +73,9 @@ class ChatStatusChanged implements ObserverInterface
     public function execute(Observer $observer)
     {
         $website = $this->helper->getWebsiteForSelectedScopeInAdmin();
+
+        /** @var \Magento\Framework\App\Request\Http $request */
         $request = $this->context->getRequest();
-        /** @var Http $request */
         $groups = $request->getPost('groups');
         $enabled = $this->getEnabled($groups);
 
