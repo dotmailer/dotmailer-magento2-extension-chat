@@ -3,6 +3,7 @@
 namespace Dotdigitalgroup\Chat\Observer;
 
 use Dotdigitalgroup\Chat\Model\Config;
+use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Framework\App\RequestInterface;
 use Dotdigitalgroup\Chat\Model\Profile\UpdateChatProfile;
@@ -26,6 +27,8 @@ class CustomerLogin implements ObserverInterface
     private $cookieReader;
 
     /**
+     * CustomerLogin constructor.
+     *
      * @param RequestInterface $request
      * @param UpdateChatProfile $chatProfile
      * @param CookieReaderInterface $cookieReader
@@ -41,9 +44,11 @@ class CustomerLogin implements ObserverInterface
     }
 
     /**
-     * @param \Magento\Framework\Event\Observer $observer
+     * Run observer
+     *
+     * @param Observer $observer
      */
-    public function execute(\Magento\Framework\Event\Observer $observer)
+    public function execute(Observer $observer)
     {
         $chatProfileId = $this->cookieReader->getCookie(Config::COOKIE_CHAT_PROFILE, null);
         if ($chatProfileId) {

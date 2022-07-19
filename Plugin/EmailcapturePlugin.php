@@ -20,6 +20,8 @@ class EmailcapturePlugin
     private $cookieReader;
 
     /**
+     * EmailcapturePlugin constructor.
+     *
      * @param UpdateChatProfile $chatProfile
      * @param CookieReaderInterface $cookieReader
      */
@@ -32,6 +34,8 @@ class EmailcapturePlugin
     }
 
     /**
+     * After email capture execute
+     *
      * @param Emailcapture $emailcapture
      */
     public function afterExecute(Emailcapture $emailcapture)

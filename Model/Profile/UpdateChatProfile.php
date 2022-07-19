@@ -23,6 +23,8 @@ class UpdateChatProfile
     private $updateProfile;
 
     /**
+     * UpdateChatProfile constructor.
+     *
      * @param Data $data
      * @param UpdateProfile $updateProfile
      * @param Helper $helper
@@ -38,12 +40,15 @@ class UpdateChatProfile
     }
 
     /**
+     * Update
+     *
      * @param string $profileId
      * @param string|null $emailAddress
      * @return void
      */
     public function update(string $profileId, string $emailAddress = null)
     {
+        $data = [];
         try {
             $data = $this->data->getDataForChatUser();
         } catch (\Exception $e) {

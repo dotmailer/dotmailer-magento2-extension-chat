@@ -3,41 +3,49 @@
 namespace Dotdigitalgroup\Chat\Controller\Adminhtml\Studio;
 
 use Magento\Backend\App\Action;
-use Dotdigitalgroup\Chat\Model\Config;
+use Magento\Framework\View\Result\Page;
+use Magento\Framework\View\Result\PageFactory;
 
-class Team extends \Magento\Backend\App\AbstractAction
+class Team extends Action
 {
     /**
      * Authorization level of a basic admin session
      *
      * @see _isAllowed()
      */
-    const ADMIN_RESOURCE = 'Dotdigitalgroup_Email::iframe';
+    public const ADMIN_RESOURCE = 'Dotdigitalgroup_Email::iframe';
 
     /**
-     * @var Config
+     * @var PageFactory
      */
-    private $config;
+    protected $resultPageFactory;
 
     /**
      * Index constructor.
+     *
      * @param Action\Context $context
-     * @param Config $config
+     * @param PageFactory $resultPageFactory
      */
     public function __construct(
         Action\Context $context,
-        Config $config
+        PageFactory $resultPageFactory
     ) {
-        $this->config = $config;
+        $this->resultPageFactory = $resultPageFactory;
         parent::__construct($context);
     }
 
     /**
      * Execute method.
+     *
+     * @return Page
      */
     public function execute()
     {
-        $this->_view->loadLayout();
-        $this->_view->renderLayout();
+        $resultPage = $this->resultPageFactory->create();
+        $resultPage
+            ->getConfig()
+            ->getTitle()
+            ->prepend(__('Chat Team / Widget'));
+        return $resultPage;
     }
 }

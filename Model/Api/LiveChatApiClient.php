@@ -10,7 +10,6 @@ use Zend\Http\Response;
 
 class LiveChatApiClient
 {
-
     /**
      * Chat config
      *
@@ -21,7 +20,7 @@ class LiveChatApiClient
     /**
      * Zend HTTP Client
      *
-     * @var HttpClientFactory
+     * @var ClientFactory
      */
     private $httpClientFactory;
 

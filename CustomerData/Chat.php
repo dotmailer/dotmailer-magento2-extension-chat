@@ -10,6 +10,7 @@ use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Framework\UrlInterface;
 use Dotdigitalgroup\Email\Helper\Data;
+use Magento\TestFramework\Event\Magento;
 
 class Chat implements SectionSourceInterface
 {

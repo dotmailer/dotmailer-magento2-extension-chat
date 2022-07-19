@@ -24,7 +24,8 @@ class EmailFlagManager
     private $emailFlagFactory;
 
     /**
-     * EmailFlagManager constructor
+     * EmailFlagManager constructor.
+     *
      * @param EmailFlagResource $flagResource
      * @param EmailFlagFactory $flagFactory
      */
@@ -37,6 +38,8 @@ class EmailFlagManager
     }
 
     /**
+     * Fetch flag by code
+     *
      * @param string $code The code of flag
      * @return string|int|float|bool|array|null
      */
@@ -46,6 +49,8 @@ class EmailFlagManager
     }
 
     /**
+     * Save flag by code
+     *
      * @param string $code The code of flag
      * @param string|int|float|bool|array|null $value The value of flag
      * @return bool
@@ -60,6 +65,8 @@ class EmailFlagManager
     }
 
     /**
+     * Delete flag by code
+     *
      * @param string $code The code of flag
      * @return bool
      */
@@ -80,8 +87,8 @@ class EmailFlagManager
      */
     private function getEmailFlagObject($code)
     {
-        /** @var EmailFlag $flag */
         $this->emailFlagResource->load(
+            /** @var EmailFlag $flag */
             $flag = $this->emailFlagFactory->create(['data' => ['flag_code' => $code]]),
             $code,
             'flag_code'

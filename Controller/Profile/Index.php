@@ -18,7 +18,7 @@ class Index extends Action
      * Profile constructor
      *
      * @param Context $context
-     * @param $chatProfile
+     * @param UpdateChatProfile $chatProfile
      */
     public function __construct(
         Context $context,
@@ -36,9 +36,10 @@ class Index extends Action
     public function execute()
     {
         $this->chatProfile->update($this->getRequest()->getParam('profileId'));
-
-        return $this->getResponse()
-            ->setHttpResponseCode(204)
-            ->sendHeaders();
+        /** @var \Magento\Framework\HTTP\PhpEnvironment\Response $response */
+        $response = $this->getResponse();
+        $response->setHttpResponseCode(204);
+        $response->sendHeaders();
+        return $response;
     }
 }

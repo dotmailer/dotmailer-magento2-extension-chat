@@ -22,11 +22,9 @@ class Config
     public const XML_PATH_LIVECHAT_API_SPACE_ID = 'chat_api_credentials/credentials/api_space_id';
     public const XML_PATH_LIVECHAT_API_HOST = 'chat_api_credentials/settings/api_host';
     public const XML_PATH_LIVECHAT_API_TOKEN = 'chat_api_credentials/credentials/api_token';
-
     public const CHAT_PORTAL_URL = 'WebChat';
     public const CHAT_CONFIGURE_TEAM_PATH = 'team/users/all';
     public const CHAT_CONFIGURE_WIDGET_PATH = 'account/chat-settings';
-
     public const MAGENTO_PROFILE_CALLBACK_ROUTE = 'ec_chat/profile?isAjax=true';
 
     /**

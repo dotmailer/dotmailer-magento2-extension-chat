@@ -25,11 +25,12 @@ class JwtDecoder
     }
 
     /**
+     * Converts JWT
+     *
      * Converts JWT string into array (without supplying a key)
      * in order to check the token expiry.
      *
      * @param string $jwt The JWT
-     *
      * @return array
      * @throws \InvalidArgumentException
      */
@@ -56,7 +57,6 @@ class JwtDecoder
      * Decode a string with URL-safe Base64.
      *
      * @param string $input A Base64 encoded string
-     *
      * @return string
      */
     private function urlSafeB64Decode(string $input): string
