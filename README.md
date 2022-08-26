@@ -12,6 +12,12 @@
 
 ## Changelog
 
+### 1.7.1
+
+##### Improvements
+- We updated our module in line with newer PHPStan and coding standards.
+- We removed two redundant controller files.
+
 ### 1.7.0
 
 ##### Improvements
