@@ -4,15 +4,26 @@ namespace Dotdigitalgroup\Chat\Controller\Profile;
 
 use Dotdigitalgroup\Chat\Model\Profile\UpdateChatProfile;
 use Magento\Framework\App\Action\Context;
-use Magento\Framework\App\ResponseInterface;
-use Magento\Framework\App\Action\Action;
+use Magento\Framework\App\RequestInterface;
+use Magento\Framework\App\Action\HttpPostActionInterface;
+use Magento\Framework\HTTP\PhpEnvironment\Response;
 
-class Index extends Action
+class Index implements HttpPostActionInterface
 {
     /**
      * @var UpdateChatProfile
      */
     private $chatProfile;
+
+    /**
+     * @var Response
+     */
+    private $response;
+
+    /**
+     * @var RequestInterface
+     */
+    private $request;
 
     /**
      * Profile constructor
@@ -25,21 +36,19 @@ class Index extends Action
         UpdateChatProfile $chatProfile
     ) {
         $this->chatProfile = $chatProfile;
-        parent::__construct($context);
+        $this->request = $context->getRequest();
+        $this->response = $context->getResponse();
     }
 
     /**
      * Update the user's profile with Chat
      *
-     * @return ResponseInterface
+     * @return Response
      */
-    public function execute()
+    public function execute(): Response
     {
-        $this->chatProfile->update($this->getRequest()->getParam('profileId'));
-        /** @var \Magento\Framework\HTTP\PhpEnvironment\Response $response */
-        $response = $this->getResponse();
-        $response->setHttpResponseCode(204);
-        $response->sendHeaders();
-        return $response;
+        $this->chatProfile->update($this->request->getParam('profileId'));
+        $this->response->setHttpResponseCode(204);
+        return $this->response;
     }
 }
