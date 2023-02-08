@@ -48,12 +48,11 @@ class UpdateProfile implements LiveChatRequestInterface
      *
      * @param string $profileId
      * @param array $data
-     * @return void|\Zend_Http_Response
+     * @return void|Response
      */
     public function send(string $profileId, array $data = [])
     {
         try {
-            /** @var \Zend_Http_Response $response */
             $response = $this->client->request(
                 sprintf('apispaces/%s/profiles/%s', $this->config->getApiSpaceId(), $profileId),
                 Request::METHOD_PATCH,
