@@ -12,6 +12,12 @@
 
 ## Changelog
 
+### 1.7.2
+
+##### Improvements
+- We updated a controller to use different interfaces.
+- We removed a redundant `EmailFlagManager` class.
+
 ### 1.7.1
 
 ##### Improvements
