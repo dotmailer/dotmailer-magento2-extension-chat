@@ -4,9 +4,9 @@ namespace Dotdigitalgroup\Chat\Model\Api;
 
 use Dotdigitalgroup\Chat\Model\Config;
 use Dotdigitalgroup\Chat\Model\Api\Token\Token;
-use Zend\Http\Client as HttpClient;
-use Zend\Http\ClientFactory;
-use Zend\Http\Response;
+use Laminas\Http\Client as HttpClient;
+use Laminas\Http\ClientFactory;
+use Laminas\Http\Response;
 
 class LiveChatApiClient
 {
@@ -18,7 +18,7 @@ class LiveChatApiClient
     private $config;
 
     /**
-     * Zend HTTP Client
+     * HTTP Client
      *
      * @var ClientFactory
      */
