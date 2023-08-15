@@ -1,4 +1,4 @@
-# Dotdigital Chat for Magento 2
+# Dotdigital Chat for Magento 2 (Magento Open Source and Adobe Commerce)
 [![Packagist Version](https://img.shields.io/packagist/v/dotdigital/dotdigital-magento2-extension-chat?color=green&label=stable)](https://github.com/dotmailer/dotmailer-magento2-extension-chat/releases)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE.md)
 
