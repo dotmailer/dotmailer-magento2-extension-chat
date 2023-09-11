@@ -1,4 +1,4 @@
-# Dotdigital Chat for Magento 2
+# Dotdigital Chat for Magento 2 (Magento Open Source and Adobe Commerce)
 [![Packagist Version](https://img.shields.io/packagist/v/dotdigital/dotdigital-magento2-extension-chat?color=green&label=stable)](https://github.com/dotmailer/dotmailer-magento2-extension-chat/releases)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE.md)
 
@@ -11,6 +11,14 @@
 - Turn on the chat bubble by enabling chat in **Configuration > Dotdigital > Chat Settings**
 
 ## Changelog
+
+### 1.8.0
+
+##### What's new
+- We've updated the module's dependencies. The module now requires PHP 7.4+ and Magento 2.3.7+.
+
+##### Improvements
+- All references to Zend classes have been replaced with their Laminas equivalents.
 
 ### 1.7.2
 

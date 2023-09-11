@@ -6,8 +6,8 @@ use Dotdigitalgroup\Chat\Model\Api\LiveChatApiClient;
 use Dotdigitalgroup\Chat\Model\Api\LiveChatRequestInterface;
 use Dotdigitalgroup\Chat\Model\Config;
 use Dotdigitalgroup\Email\Logger\Logger;
-use Zend\Http\Response;
-use Zend\Http\Request;
+use Laminas\Http\Response;
+use Laminas\Http\Request;
 
 class UpdateProfile implements LiveChatRequestInterface
 {
