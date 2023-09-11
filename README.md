@@ -12,6 +12,14 @@
 
 ## Changelog
 
+### 1.8.0
+
+##### What's new
+- We've updated the module's dependencies. The module now requires PHP 7.4+ and Magento 2.3.7+.
+
+##### Improvements
+- All references to Zend classes have been replaced with their Laminas equivalents.
+
 ### 1.7.2
 
 ##### Improvements
