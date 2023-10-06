@@ -12,6 +12,12 @@
 
 ## Changelog
 
+### 1.8.1
+
+##### Improvements
+- We refactored a controller plugin to replace usage of `$this→getRequest()`.
+- We've removed avoidable usages of protected access for properties and methods.
+
 ### 1.8.0
 
 ##### What's new
