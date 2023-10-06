@@ -20,7 +20,7 @@ class Index extends Action
     /**
      * @var PageFactory
      */
-    protected $resultPageFactory;
+    private $resultPageFactory;
 
     /**
      * @var Data

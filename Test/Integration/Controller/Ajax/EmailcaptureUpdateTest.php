@@ -5,6 +5,7 @@ namespace Dotdigitalgroup\Chat\Test\Integration\Controller\Ajax;
 use Dotdigitalgroup\Chat\Model\Config;
 use Dotdigitalgroup\Chat\Model\Profile\UpdateChatProfile;
 use Magento\Framework\App\ObjectManager;
+use Magento\Framework\App\Request\Http as HttpRequest;
 use Magento\TestFramework\TestCase\AbstractController;
 
 class EmailcaptureUpdateTest extends AbstractController
@@ -32,7 +33,7 @@ class EmailcaptureUpdateTest extends AbstractController
             ->method('update')
             ->with($profileId, $email);
 
-        $this->getRequest()->setParam('email', $email);
+        $this->getRequest()->setParam('email', $email)->setMethod(HttpRequest::METHOD_POST);
 
         $this->dispatch('/connector/ajax/emailcapture');
     }
