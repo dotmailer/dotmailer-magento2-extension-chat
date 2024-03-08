@@ -12,6 +12,12 @@
 
 ## Changelog
 
+### 1.10.0
+
+##### Improvements
+- The 'Configure Chat Teams' button on Dotdigital > Chat Settings has been removed.
+- The `CustomerData\Chat` class can now be used as a view model (for Hyvä Themes).
+
 ### 1.9.0
 
 ##### Improvements
