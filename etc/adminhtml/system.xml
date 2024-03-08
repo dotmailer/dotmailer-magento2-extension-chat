@@ -22,13 +22,7 @@
                         <field id="enabled">1</field>
                     </depends>
                     <frontend_model>Dotdigitalgroup\Chat\Block\Adminhtml\Config\Settings\ConfigureWidgetButton</frontend_model>
-                </field>
-                <field id="configure_chat_teams" translate="label" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="0">
-                    <label>Configure Chat Teams</label>
-                    <depends>
-                        <field id="enabled">1</field>
-                    </depends>
-                    <frontend_model>Dotdigitalgroup\Chat\Block\Adminhtml\Config\Settings\ConfigureTeamsButton</frontend_model>
+                    <comment><![CDATA[Learn how to set up Chat by reading our <a href="https://support.dotdigital.com/en/articles/8409160-set-up-chat-in-magento-open-source-and-adobe-commerce" target="_blank">Help Centre</a> articles.]]></comment>
                 </field>
             </group>
         </section>

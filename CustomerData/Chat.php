@@ -7,12 +7,13 @@ use Magento\Customer\Api\Data\CustomerInterface;
 use Magento\Customer\CustomerData\SectionSourceInterface;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Exception\NoSuchEntityException;
+use Magento\Framework\View\Element\Block\ArgumentInterface;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Framework\UrlInterface;
 use Dotdigitalgroup\Email\Helper\Data;
 use Magento\TestFramework\Event\Magento;
 
-class Chat implements SectionSourceInterface
+class Chat implements SectionSourceInterface, ArgumentInterface
 {
     /**
      * @var Config
