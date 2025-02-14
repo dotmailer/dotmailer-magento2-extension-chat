@@ -12,6 +12,11 @@
 
 ## Changelog
 
+### 1.10.1
+
+##### Improvements
+- We removed all references to cdn.dnky.co from the module's CSP whitelist.
+
 ### 1.10.0
 
 ##### Improvements
