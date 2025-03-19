@@ -10,13 +10,12 @@ use Magento\Customer\Model\Session;
 use Magento\Quote\Api\CartRepositoryInterface;
 use Magento\Quote\Api\Data\CartInterface;
 use Magento\Sales\Model\ResourceModel\Order\CollectionFactory;
-use Magento\Store\Api\Data\StoreInterface;
+use Magento\Store\Model\Store;
 use Magento\Store\Model\StoreManagerInterface;
 use PHPUnit\Framework\TestCase;
 
 class DataTest extends TestCase
 {
-
     /**
      * @var Session
      */
@@ -63,9 +62,9 @@ class DataTest extends TestCase
     private $cartInterfaceMock;
 
     /**
-     * @var StoreInterface
+     * @var Store
      */
-    private $storeInterfaceMock;
+    private $storeMock;
 
     protected function setUp() :void
     {
@@ -77,11 +76,7 @@ class DataTest extends TestCase
         $this->customerMock = $this->createMock(Customer::class);
         $this->customerInterfaceMock = $this->createMock(CustomerInterface::class);
         $this->cartInterfaceMock = $this->createMock(CartInterface::class);
-
-        $this->storeInterfaceMock = $this->getMockBuilder(StoreInterface::class)
-            ->setMethods(['getBaseUrl','getId'])
-            ->disableOriginalConstructor()
-            ->getMockForAbstractClass();
+        $this->storeMock = $this->createMock(Store::class);
 
         $this->dataMock = new Data(
             $this->customerSessionMock,
@@ -103,7 +98,7 @@ class DataTest extends TestCase
 
         $this->storeManagerMock->expects($this->once())
             ->method('getStore')
-            ->willReturn($this->storeInterfaceMock);
+            ->willReturn($this->storeMock);
 
         $this->customerSessionMock->expects($this->once())
             ->method('isLoggedIn')
@@ -127,11 +122,11 @@ class DataTest extends TestCase
             ->with($loggedInCustomerId)
             ->willReturn($this->cartInterfaceMock);
 
-        $this->storeInterfaceMock->expects($this->once())
+        $this->storeMock->expects($this->once())
             ->method('getId')
             ->willReturn($storeId);
 
-        $this->storeInterfaceMock->expects($this->once())
+        $this->storeMock->expects($this->once())
             ->method('getBaseUrl')
             ->willReturn($baseUrl);
 
@@ -167,7 +162,7 @@ class DataTest extends TestCase
 
         $this->storeManagerMock->expects($this->once())
             ->method('getStore')
-            ->willReturn($this->storeInterfaceMock);
+            ->willReturn($this->storeMock);
 
         $this->customerSessionMock->expects($this->once())
             ->method('isLoggedIn')
@@ -191,11 +186,11 @@ class DataTest extends TestCase
             ->with($loggedInCustomerId)
             ->will($this->throwException(new \Magento\Framework\Exception\NoSuchEntityException()));
 
-        $this->storeInterfaceMock->expects($this->once())
+        $this->storeMock->expects($this->once())
             ->method('getId')
             ->willReturn($storeId);
 
-        $this->storeInterfaceMock->expects($this->once())
+        $this->storeMock->expects($this->once())
             ->method('getBaseUrl')
             ->willReturn($baseUrl);
 
@@ -226,7 +221,7 @@ class DataTest extends TestCase
 
         $this->storeManagerMock->expects($this->once())
             ->method('getStore')
-            ->willReturn($this->storeInterfaceMock);
+            ->willReturn($this->storeMock);
 
         $this->customerSessionMock->expects($this->once())
             ->method('isLoggedIn')
@@ -241,11 +236,11 @@ class DataTest extends TestCase
         $this->quoteRepositoryMock->expects($this->never())
             ->method('getForCustomer');
 
-        $this->storeInterfaceMock->expects($this->once())
+        $this->storeMock->expects($this->once())
             ->method('getId')
             ->willReturn($storeId);
 
-        $this->storeInterfaceMock->expects($this->once())
+        $this->storeMock->expects($this->once())
             ->method('getBaseUrl')
             ->willReturn($baseUrl);
 
