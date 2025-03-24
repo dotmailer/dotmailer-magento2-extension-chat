@@ -46,7 +46,7 @@ class UpdateChatProfile
      * @param string|null $emailAddress
      * @return void
      */
-    public function update(string $profileId, string $emailAddress = null)
+    public function update(string $profileId, ?string $emailAddress = null)
     {
         $data = [];
         try {

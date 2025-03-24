@@ -12,6 +12,11 @@
 
 ## Changelog
 
+### 1.10.2
+
+##### Improvements
+- We updated our code for compatibility with PHP 8.4.
+
 ### 1.10.1
 
 ##### Improvements
