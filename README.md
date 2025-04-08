@@ -12,6 +12,12 @@
 
 ## Changelog
 
+### 1.10.2
+
+##### Improvements
+- We removed implicitly null types for compatibility with PHP 8.4.
+- Unit tests are now compatible with PHPUnit 10.
+
 ### 1.10.1
 
 ##### Improvements

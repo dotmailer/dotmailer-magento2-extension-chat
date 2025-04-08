@@ -122,8 +122,11 @@ class Data
      * @return array
      * @throws NoSuchEntityException
      */
-    private function getCustomerPayload(StoreInterface $store, CustomerInterface $customer, CartInterface $quote = null)
-    {
+    private function getCustomerPayload(
+        StoreInterface $store,
+        CustomerInterface $customer,
+        ?CartInterface $quote = null
+    ) {
         $data = $this->getBasePayload($store);
 
         $data["customer"] = [

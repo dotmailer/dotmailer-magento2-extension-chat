@@ -8,7 +8,7 @@ use Dotdigitalgroup\Chat\Model\Config;
 use Dotdigitalgroup\Chat\Observer\Adminhtml\ChatStatusChanged;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\App\ObjectManager;
-use Magento\Framework\App\RequestInterface;
+use Magento\Framework\App\Request\Http;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Message\ManagerInterface;
 use Magento\Store\Model\Website;
@@ -48,7 +48,7 @@ class ChatStatusChangedTest extends TestCase
     private $chatStatusChanged;
 
     /**
-     * @var RequestInterface
+     * @var Http
      */
     private $requestInterfaceMock;
 
@@ -81,10 +81,7 @@ class ChatStatusChangedTest extends TestCase
         $this->observerMock = $this->createMock(Observer::class);
         $this->managerInterfaceMock = $this->createMock(ManagerInterface::class);
         $this->objectManagerMock = $this->createMock(ObjectManager::class);
-        $this->requestInterfaceMock = $this->getMockBuilder(RequestInterface::class)
-            ->setMethods(['getPost'])
-            ->disableOriginalConstructor()
-            ->getMockForAbstractClass();
+        $this->requestInterfaceMock = $this->createMock(Http::class);
         $this->helperMock = $this->createMock(Data::class);
         $this->websiteMock = $this->createMock(Website::class);
         $this->loggerMock = $this->createMock(Logger::class);
