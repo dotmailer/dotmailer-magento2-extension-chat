@@ -18,17 +18,6 @@ define([
             urlBase: chatData().apiHost
         };
 
-        (function (d, s, id) {
-            var js, cjs = d.getElementsByTagName(s)[0];
-
-            if (d.getElementById(id)) {
-                return;
-            }
-            js = d.createElement(s); js.id = id;
-            js.src = chatData().apiHost + '/widget/bootstrap.js';
-            cjs.parentNode.insertBefore(js, cjs);
-        }(document, 'script', 'ddg-chat-widget'));
-
         // listen for widget message events
         window.addEventListener('message', function (event) {
             if (event.data.type !== 'SetWidgetState') {

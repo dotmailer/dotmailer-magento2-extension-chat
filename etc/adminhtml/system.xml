@@ -8,9 +8,11 @@
             <resource>Dotdigitalgroup_Chat::config</resource>
             <group id="settings" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="0">
                 <label>Chat Settings</label>
+                <comment><![CDATA[Chat is now enabled via Dotdigital using the Dotdigital Tag. Visit Connect > Connect website to enable Chat. <a href="https://support.dotdigital.com/en/articles/9298184-add-the-dotdigital-tag-to-your-website" target="_blank">Learn more</a>.]]></comment>
                 <attribute type="expanded">1</attribute>
                 <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
-                    <label>Enabled</label>
+                    <label>Enable Chat profile updates</label>
+                    <comment><![CDATA[Capture information for active chats and send updates to Dotdigital.]]></comment>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
                 <field id="api_host" translate="label" type="text" showInDefault="0" showInStore="0" showInWebsite="0">
