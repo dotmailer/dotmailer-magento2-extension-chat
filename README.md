@@ -3,14 +3,27 @@
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE.md)
 
 ## Requirements
-- This module requires the `Dotdigitalgroup_Email` module v4.23.0+
+- `Dotdigitalgroup_Email` module v4.33.0+
+- PHP 7.4+
+- Magento 2.4.2+
+    - Magento 2.3.7, 2.4.0 and 2.4.1 are compatible up to version 1.10.x
 
 ## Activation
 - This module is included in our core extension. Please refer to [these instructions](https://github.com/dotmailer/dotmailer-magento2-extension#installation) to install via the Magento Marketplace.
 - Ensure you have set valid API credentials in **Configuration > Dotdigital > Account Settings**
-- Turn on the chat bubble by enabling chat in **Configuration > Dotdigital > Chat Settings**
+- Turn on the chat bubble by enabling chat in Dotdigital **Connect > Connect website**
+- Enable chat profile updates in **Configuration > Dotdigital > Chat Settings**
 
 ## Changelog
+
+### 2.0.0
+
+##### What's new
+- The module is updated to use Chat served via the Dotdigital Tag.
+
+##### Notes
+- Chat must now be enabled from inside Dotdigital via Connect > Connect website.
+- Magento 2.4.2+ is required for this version of the Chat module.
 
 ### 1.10.2
 
